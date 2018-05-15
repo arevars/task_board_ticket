@@ -128,10 +128,8 @@ class LinkedList {
             }
 
         } else {
-
             throw new Exception("Index out of bounds");
         }
-
     }
 
     public function size() {

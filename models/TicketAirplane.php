@@ -1,20 +1,25 @@
 <?php
 
+namespace models;
+
+use common\Ticket;
+use common\Transport;
+
 class TicketAirplane extends Ticket {
-    public $flight;
-    public $classType;
+
+    public $flightNumber;
+    public $gate;
+    public $seat;
+    public $baggageNumber;
     
-    public function __construct($flight,$classType) {
-        $this->flight = $flight;
-        $this->classType = $classType;
+    public function getType() {
+        return Transport::getTransport(2);
     }
-    
-    public function getTicketData() {
+
+    public function getData() {
         return $this;
     }
-    
-    public function setTicketData() {}
-    
+
 }
 
 
