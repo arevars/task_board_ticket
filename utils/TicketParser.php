@@ -8,37 +8,58 @@ use models\TicketBus;
 use models\TicketTrain;
 
 class TicketParser {
+//
+//    public function __construct($data) {
+//        $this->data = json_decode($data, true);
+//    }
 
-    public function __construct($data) {
-        $this->data = json_decode($data, true);
+
+
+    public function getSortedList($list) {
+
+        $fromList = array_column($list, 'from');
+        $toList = array_column($list,'to');
+
+        $last = current(array_diff($fromList,$toList));
+
+        $sortedList = $this->formatTree($list,$last);
+
+//        foreach($list as $item) {
+////            if($item['to'])
+//        }
+        $sortedList = array_column($sortedList,'next');
+
+        return $sortedList;
     }
 
-    public function getLinkedList() {
-        $list = new LinkedList();
-//        echo '<pre>';
-//var_dump($this->data); exit;
-        foreach($this->data as $value) {
-            $ticket =
-            switch($value['type']) {
-                case 1:
-                    $ticket = new
-                    break;
+    private function formatTree($list, $parent)
+    {
 
-                default: break;
+
+        foreach ($list as $item) {
+            if ($item['from'] == $parent) {
+                $sortedList[] = $item;
+                $sortedList2[] = $item;
+                $sortedList[]['next'] = $this->formatTree($list, $item['to']);
             }
-            $list->insertAtLast($value['to']);
         }
-        return $list;
+
+        return $sortedList2;
+
+//        foreach ($list as $item) {
+//            if ($item['from'] == $parent) {
+//                $sortedList[$item['to']] = $item;
+////                $sortedList[$item['to']]['child'] = $this->formatTree($list, $item['to']);
+//                $sortedList[] = $this->formatTree($list, $item['to']);
+//            }
+//        }
+//
+//        return $sortedList;
     }
 
-    public function getSortedList() {
-        $count = count($this->data);
-        $sortedData = [];
-        foreach ($this->data as $value) {
-            $value['from']
-            $value['to']
-        }
-    }
+
+
+
 
 
 //    public function parseTicket() {
