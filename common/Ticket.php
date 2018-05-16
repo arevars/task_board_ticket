@@ -1,8 +1,6 @@
 <?php
 
-namespace common;
-
-use common\ITicket;
+namespace Common;
 
 abstract class Ticket implements ITicket {
 

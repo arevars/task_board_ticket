@@ -1,6 +1,6 @@
 <?php
 
-namespace common;
+namespace Common;
 
 interface ITicket
 {

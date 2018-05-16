@@ -1,8 +1,8 @@
 <?php
 
-namespace models;
+namespace Models;
 
-use common\Ticket;
+use Common\Ticket;
 
 
 class TicketTrain extends Ticket {

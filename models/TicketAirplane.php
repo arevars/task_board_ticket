@@ -1,10 +1,10 @@
 <?php
 
-namespace models;
+namespace Models;
 
-use common\Ticket;
-use models\TicketManager;
-use models\TransportManager;
+use Common\Ticket;
+use Models\TicketManager;
+use Models\TransportManager;
 
 class TicketAirplane extends Ticket {
 

@@ -1,10 +1,8 @@
 <?php
 
-namespace models;
+namespace Models;
 
-use common\Ticket;
-use common\TicketManager;
-use common\TransportManager;
+use Common\Ticket;
 
 class TicketBus extends Ticket {
     public $seat;

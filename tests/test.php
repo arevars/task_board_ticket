@@ -58,17 +58,3 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, "ticketData=" . $testData);
 
 $result = curl_exec($ch);
 curl_close($ch);
-
-//
-//
-//$beforeTree = [
-//    ['id' => 1, 'parent_id' => 0],
-//    ['id' => 2, 'parent_id' => 1],
-//    ['id' => 3, 'parent_id' => 2],
-//    ['id' => 4, 'parent_id' => 0],
-//    ['id' => 5, 'parent_id' => 4],
-//    ['id' => 6, 'parent_id' => 4],
-//];
-//$afterTree = formatTree($beforeTree, 0);
-//
-//var_dump($afterTree);

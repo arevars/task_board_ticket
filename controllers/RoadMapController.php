@@ -1,8 +1,8 @@
 <?php
 
-namespace controllers;
+namespace Controllers;
 
-use models\TicketManager;
+use Models\TicketManager;
 
 class RoadMapController {
     public $data;

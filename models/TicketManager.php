@@ -1,10 +1,10 @@
 <?php
 
-namespace models;
+namespace Models;
 
-use models\TicketAirplane;
-use models\TicketTrain;
-use models\TicketBus;
+use Models\TicketAirplane;
+use Models\TicketTrain;
+use Models\TicketBus;
 
 class TicketManager {
 
