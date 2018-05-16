@@ -2,7 +2,7 @@
 
 namespace common;
 
-use common\ITransport;
+use common\ITicket;
 
 abstract class Ticket implements ITicket {
 

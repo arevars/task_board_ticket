@@ -3,14 +3,15 @@
 namespace models;
 
 use common\Ticket;
-use common\Transport;
+use common\TicketManager;
+use common\TransportManager;
 
 class TicketBus extends Ticket {
     public $seat;
     public $place;
     
     public function getType() {
-        return Transport::getTransport(1);
+        return TicketManager::getType(1);
     }
 
     public function getData() {
