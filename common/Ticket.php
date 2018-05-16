@@ -4,8 +4,10 @@ namespace Common;
 
 abstract class Ticket implements ITicket {
 
+    public $id;
     public $from;
     public $to;
+    public $type;
 
     abstract public function getType();
 

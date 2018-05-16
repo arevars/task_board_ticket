@@ -3,8 +3,6 @@
 namespace Models;
 
 use Common\Ticket;
-use Models\TicketManager;
-use Models\TransportManager;
 
 class TicketAirplane extends Ticket {
 
@@ -14,7 +12,7 @@ class TicketAirplane extends Ticket {
     public $baggageNumber;
     
     public function getType() {
-        return TicketManager::getType(TRANSPORT_TYPE_AIRPLANE);
+        return TicketManager::getType(TransportManager::TRANSPORT_TYPE_AIRPLANE);
     }
 }
 

@@ -5,11 +5,11 @@ namespace Models;
 use Common\Ticket;
 
 class TicketBus extends Ticket {
+    public $busNumber;
     public $seat;
-    public $place;
-    
+
     public function getType() {
-        return TicketManager::getType(1);
+        return TicketManager::getType(TransportManager::TRANSPORT_TYPE_BUS);
     }
 
     public function getData() {

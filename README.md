@@ -52,3 +52,6 @@ P.S Thank you for task.
 Be prepared to suggest to us how we could extend the code towards new types of transportation, which might have different
 characteristics.
 add new type taxi
+
+if this will be an internal API i assume that board tickets come from database as objects, 
+so i created them as they can be.

@@ -17,17 +17,19 @@ class RoadMapController {
         return $ticketData->getSortedList();
     }
 
+    /**
+     * @param $from
+     * @return string
+     */
     public function getNextDestination($from) {
-        $sortedList = $this->getSortedDestinationsList($this->data);
+        $sortedList = $this->getSortedDestinationsList();
 
         foreach($sortedList as $place) {
-            if($place['from'] == $from) {
+            if($place->from == $from) {
                 return $place;
             }
         }
-        return 'Something going wrong';
+        return 'Destination unknown';
 
     }
-
-
 }

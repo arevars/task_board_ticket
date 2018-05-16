@@ -2,17 +2,13 @@
 
 namespace Models;
 
-use Models\TicketAirplane;
-use Models\TicketTrain;
-use Models\TicketBus;
-
 class TicketManager {
 
     public function __construct($data) {
-        $this->data = json_decode($data, true);
+        $this->data = json_decode($data,true);
     }
 
-    public function getSortedList($asObject = true) {
+    public function getSortedList() {
 
         // get from and to values to different arrays
         $fromList = array_column($this->data, 'from');
@@ -28,27 +24,28 @@ class TicketManager {
         $it = new \RecursiveIteratorIterator(new \RecursiveArrayIterator($tree));
         $i = 0;
 
-        if($asObject){
-            foreach($it as $key => $v) {
-                if($key =='id') {
-                    $i++;
-                }
-
-                $ticket = $this->getTicketByType($v['type']);
-                $sortedList[$i][$key] = $ticket->setData($key,$v);
+        foreach($it as $key => $v) {
+            if($key =='id') {
+                $i++;
             }
-        } else {
-            foreach($it as $key => $v) {
-                if($key =='id') {
-                    $i++;
-                }
-                $sortedList[$i][$key] = $v;
-            }
+            $sortedList[$i][$key] = $v;
         }
+       //
 
+        return $this->getTicketAsObject($sortedList);
+    }
 
-        //
-        return $sortedList;
+    private function getTicketAsObject($sortedList) {
+
+        foreach($sortedList as $value) {
+            $ticket = $this->getTicketByType($value['type']);
+            foreach($value as $key=>$attributes) {
+                $ticket->setData($key,$attributes);
+            }
+
+            $objectList[] = $ticket;
+        }
+        return $objectList;
     }
 
     private function formatTree($list, $parent) {

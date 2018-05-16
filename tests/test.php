@@ -1,59 +1,46 @@
 <?php
 
+$b = new stdClass();
+$b->id = 263;
+$b->from = 32;
+$b->to = 21;
+$b->type = 1;
+$b->train = "75A";
+$b->seat = "45B";
 
-$testData = json_encode([
-    [
-        'id' => 26,
-        'from' => 6,
-        'to' => 7,
-        'type' => 3,
-        'baggage' => 29,
-        'seat' => "15A",
-    ],
-    [
-        'id' => 263,
-        'from' => 2,
-        'to' => 3,
-        'type' => 2,
-        'baggage' => null,
-        'seat' => "56B",
-    ],
-    [
-        'id' => 9852,
-        'from' => 5,
-        'to' => 6,
-        'type' => 2,
-        'baggage' => null,
-        'seat' => null,
-    ],
-    [
-        'id' => 3569,
-        'from' => 1,
-        'to' => 2,
-        'type' => 1,
-        'baggage' => 344,
-        'seat' => "45A",
-    ],
-    [
-        'id' => 598,
-        'from' => 3,
-        'to' => 4,
-        'type' => 3,
-        'baggage' => null,
-        'seat' => "23C",
-    ], [
-        'id' => 1254,
-        'from' => 4,
-        'to' => 5,
-        'type' => 1,
-        'baggage' => null,
-        'seat' => null,
-    ]
-        ], JSON_FORCE_OBJECT);
+$c = new stdClass();
+$c->id = 86;
+$c->from = 21;
+$c->to = 93;
+$c->type = 3;
+$b->busNumber = "75A";
+$c->seat = null;
+
+$a = new stdClass();
+$a->id = 26;
+$a->from = 93;
+$a->to = 452;
+$a->type = 2;
+$a->flightNumber = 'SK455';
+$a->gate = '45B';
+$a->seat = '3A';
+$a->baggageNumber = 343;
+
+$d = new stdClass();
+$d->id = 26;
+$d->from = 452;
+$d->to = 34;
+$d->type = 2;
+$d->flightNumber = 'SK22';
+$d->gate = 22;
+$d->seat = '7B';
+$d->baggageNumber = null;
+
+$ticketData = json_encode([$a,$b,$c,$d]);
 
 $ch = curl_init('http://' . $_SERVER['HTTP_HOST'] . "/index.php");
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_POSTFIELDS, "ticketData=" . $testData);
+curl_setopt($ch, CURLOPT_POSTFIELDS, "ticketData=" . $ticketData);
                                                                                                               
 
 $result = curl_exec($ch);
