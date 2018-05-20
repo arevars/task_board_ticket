@@ -2,9 +2,11 @@
 require_once __DIR__.'/autoloader.php';
 
 $autoloader = new Autoloader();
-$autoloader->addNamespace('Common', 'common/');
-$autoloader->addNamespace('Controllers', 'controllers/');
-$autoloader->addNamespace('Models', 'models/');
+$autoloader->addNamespace('Common', 'src/common/');
+$autoloader->addNamespace('Controllers', 'src/controllers/');
+$autoloader->addNamespace('Models', 'src/models/');
+$autoloader->addNamespace('Tests', 'tests/');
+
 $autoloader->register();
 //////////////////////////
 
@@ -53,14 +55,14 @@ $autoloader->register();
 //
 //var_dump($b);
 
-
-if (isset($_POST['ticketData'])) {
-    $test_data = $_POST['ticketData'];
-    $trip = new \Controllers\RoadMapController($test_data);
-    $a = $trip->getSortedDestinationsList();
-    $b = $trip->getNextDestination(21);
-
-    var_dump($b);
-
-
-}
+//
+//if (isset($_POST['ticketData'])) {
+//    $test_data = $_POST['ticketData'];
+//    $trip = new \Controllers\RoadMapController($test_data);
+//    $a = $trip->getSortedDestinationsList();
+//    $b = $trip->getNextDestination(21);
+//
+//    var_dump($b);
+//
+//
+//}
