@@ -1,6 +1,6 @@
 <?php
 
-require_once '../boot.php';
+require_once 'boot.php';
 
 use PHPUnit\Framework\TestCase;
 use Models\TicketManager;
@@ -45,14 +45,21 @@ class TicketManagerTest extends TestCase
         $d->seat = '7B';
         $d->baggageNumber = null;
 
-        $ticketData = json_encode([$a,$b,$c,$d]);
+        $ticketData = json_encode([$c,$b,$a,$d]);
 
         $ticketManager = new TicketManager($ticketData);
-        $ticketManager->getSortedList();
+        $data = $ticketManager->getSortedList();
 
-//        $TestTicketManager = $this->createMock("TicketManager")
-//            ->method("__construct")
-//            ->willReturn($ticketData);
+        $this->assertEquals(32, $data[0]->from);
+        $this->assertEquals(21, $data[0]->to);
 
+        $this->assertEquals(21, $data[1]->from);
+        $this->assertEquals(93, $data[1]->to);
+
+        $this->assertEquals(93, $data[2]->from);
+        $this->assertEquals(452, $data[2]->to);
+
+        $this->assertEquals(452, $data[3]->from);
+        $this->assertEquals(34, $data[3]->to);
     }
 }
